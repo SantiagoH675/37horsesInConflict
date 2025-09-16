@@ -1,22 +1,19 @@
-﻿
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 
-public class Avivity37
+public class Activity37
 {
     public static void Main(string[] args)
     {
         Console.WriteLine("Ingrese UBICACION de los caballos:");
         string? cabInput = Console.ReadLine();
 
-    
         string cab = Regex.Replace(cabInput ?? string.Empty, "[^A-H1-8a-h]", "")
                           .ToUpperInvariant();
 
-        int[,] tab = new int[8, 8];   
-        int[,] pos = new int[64, 2];  
+        int[,] tab = new int[8, 8];
+        int[,] pos = new int[64, 2];
 
-       
         int x = cab.Length;
         int i = 0;
         int tope = 0;
@@ -24,7 +21,7 @@ public class Avivity37
         while (i < x)
         {
             char col = cab[i++];
-            if (i >= x) break; 
+            if (i >= x) break;
             char fil = cab[i++];
 
             int r = ef(fil);
@@ -106,7 +103,7 @@ public class Avivity37
         Console.WriteLine();
     }
 
-    static bool inBoard(int f, int c) => f >= 0 && f <= 7 && c >= 0 && c <= 7;
+    private static bool inBoard(int f, int c) => f >= 0 && f <= 7 && c >= 0 && c <= 7;
 
     public static int ef(char f) => f switch
     {
